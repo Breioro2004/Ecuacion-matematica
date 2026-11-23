@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balón de chocolate | Aplicación matemática SENA</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#inicio">BALÓN DE CHOCOLATE</a>
+  <nav aria-label="Navegación principal">
+    <a href="#problema">Problema</a>
+    <a href="#geometria">Geometría</a>
+    <a href="#ecuacion">Ecuación</a>
+    <a href="#informe">Informe</a>
+  </nav>
+</header>
+<main id="inicio">
+  <section class="hero" aria-labelledby="titulo">
+    <div class="hero-copy">
+      <p class="eyebrow">SENA · APLICACIÓN MATEMÁTICA</p>
+      <h1 id="titulo">Un balón de <em>chocolate</em></h1>
+      <p>Un regalo para 50 clientes y un reto de geometría y presupuesto.</p>
+      <a class="button" href="#ecuacion">Resolver la ecuación <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure><img src="balon.webp" alt="Balón de fútbol decorado con chocolate blanco y oscuro" width="1100" height="733"></figure>
+  </section>
+  <section class="block" id="problema">
+    <p class="eyebrow">EL PROYECTO</p>
+    <h2>Un obsequio para cada cliente</h2>
+    <p class="intro">Una tienda deportiva quiere agradecer la fidelidad de 50 clientes. Cada uno recibirá un balón de chocolate de 12 cm de diámetro en su propia caja. ¿Cuánta superficie hay que decorar, cuánto cartón se necesita y cuánto costará el lote?</p>
+  </section>
+  <section class="block geometry" id="geometria">
+    <h2>Superficie y empaque</h2>
+    <p class="intro" id="geometry-quantity">Cada balón se modela como una esfera y se empaca en una caja cúbica.</p>
+    <div class="grid">
+      <article>
+        <h3>Superficie exterior del balón</h3>
+        <p class="formula">A = 4πr²</p>
+        <ol class="geometry-steps" id="surface-steps"></ol>
+      </article>
+      <article>
+        <h3>Cartón para el empaque</h3>
+        <p class="formula">A = 6L² × 1,10</p>
+        <ol class="geometry-steps" id="packaging-steps"></ol>
+      </article>
+    </div>
+    <p class="intro">Para cambiar la cantidad del lote, usa el <a href="#ecuacion">módulo de cálculo</a>.</p>
+  </section>
+  <section class="block calculator" id="ecuacion">
+    <p class="eyebrow">MÓDULO INTERACTIVO</p>
+    <h2>¿Cuánto cuesta producir el lote?</h2>
+    <p class="intro">El molde cuesta $60.000. Cada balón suma $13.000 entre chocolate, empaque y mano de obra. Escribe la cantidad de balones para ver cómo se resuelve la ecuación.</p>
+    <div class="grid">
+      <div class="inputs">
+        <h3>Fórmula del costo total</h3>
+        <p class="math">C(n) = 60.000 + 13.000n</p>
+        <p class="definition"><strong>n</strong> es la cantidad de balones y <strong>C(n)</strong> es el costo total en pesos colombianos.</p>
+        <form id="cost-form" novalidate>
+          <label for="quantity">Cantidad de balones (n)</label>
+          <input id="quantity" type="number" min="1" max="1000000" step="1" value="50" required aria-describedby="input-error">
+          <p id="input-error" class="error" role="alert" hidden></p>
+          <button class="button" type="submit">Calcular</button>
+        </form>
+        <noscript>Activa JavaScript en tu navegador para calcular otras cantidades.</noscript>
+      </div>
+      <div class="solution" aria-live="polite" aria-atomic="true">
+        <div id="results">
+          <h3>Solución paso a paso</h3>
+          <ol id="equation-steps"></ol>
+          <div class="total"><span>Costo total</span><strong id="total">$710.000 COP</strong></div>
+          <p class="average">Costo promedio por balón <strong id="average">$14.200 COP</strong></p>
+        </div>
+      </div>
+    </div>
+    <details class="inverse">
+      <summary>Despejar la cantidad de balones a partir del costo total</summary>
+      <p class="math">n = (C − 60.000) ÷ 13.000</p>
+      <p class="definition">Resta el costo del molde al total y divide el resultado entre el costo de un balón.</p>
+      <form id="inverse-form" novalidate>
+        <label for="known-cost">Costo total (COP)</label>
+        <input id="known-cost" type="number" min="73000" max="13000060000" step="1" value="710000" required aria-describedby="inverse-result">
+        <button class="button" type="submit">Resolver para n</button>
+      </form>
+      <p id="inverse-result" role="status">n = (710.000 − 60.000) ÷ 13.000 = 50 balones</p>
+    </details>
+  </section>
+  <section class="block report" id="informe">
+    <div>
+      <h2>Informe del proyecto</h2>
+      <p class="intro" id="report-status" role="status">Calcula el costo para preparar el informe de resultados.</p>
+    </div>
+    <button class="button" id="download-report" type="button" disabled>Descargar informe de resultados <span aria-hidden="true">↓</span></button>
+  </section>
+</main>
+<footer><strong>Breinner Stiven Orozco Salas</strong><span>Análisis y Desarrollo de Software · SENA · Ficha 3465955</span></footer>
+</body>
+</html>
